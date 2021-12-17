@@ -10,16 +10,25 @@ import SwiftUI
 struct WelcomeView: View {
     @State var show = false
     var body: some View {
-        NavigationLink(destination: HomeView(), isActive: $show, label: {
-            Text("Congratulations! Your registration is complete")
-        })
-            .foregroundColor(.black)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self.show.toggle()
-                }
-            }
-            .navigationBarBackButtonHidden(true)
+        
+        VStack {
+            Text("Congratulations! Your Registration is complete")
+                .padding(.top, 400)
+            
+            Spacer(minLength: 50)
+            
+            NavigationLink(destination: HomeView(), label: {
+                Text("Close")
+                    
+            })
+                .foregroundColor(.white)
+                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(Color("CustomDarkBlue"))
+        }
+        .padding()
+        
+        
     }
 }
 
