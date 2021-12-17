@@ -345,7 +345,7 @@ struct SignUpView: View {
                     NavigationLink(destination: WelcomeView(),
                                    isActive: self.$signUpVM.isSignUpValid)
                     {
-                        Text("SIGN UP")
+                        Text("SIGN IN")
                             .padding()
                             .foregroundColor(.white)
                             .frame(minWidth: 0, maxWidth: .infinity)

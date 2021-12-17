@@ -73,7 +73,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func logIn() {
+    func clearTextFields() {
             // perform signup functions then clear fields
             email = ""
             password = ""
