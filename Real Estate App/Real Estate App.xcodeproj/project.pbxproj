@@ -20,7 +20,6 @@
 		4D7D922A276713E900444CBE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D9229276713E900444CBE /* Constants.swift */; };
 		4DB6F982276B4749009A0B79 /* CheckBoxFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F981276B4749009A0B79 /* CheckBoxFieldView.swift */; };
 		4DB6F984276B479E009A0B79 /* CustomEntryFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F983276B479E009A0B79 /* CustomEntryFieldView.swift */; };
-		4DC9CA282768DE1B00F9686B /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC9CA272768DE1B00F9686B /* SideMenuViewModel.swift */; };
 		4DD3CEB4276A1321000F8CC0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3CEB3276A1321000F8CC0 /* WelcomeView.swift */; };
 		4DD3CEB6276A9B5A000F8CC0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */; };
 		4DD542022761F317004C8414 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD542012761F317004C8414 /* Credentials.swift */; };
@@ -42,7 +41,6 @@
 		4D7D9229276713E900444CBE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4DB6F981276B4749009A0B79 /* CheckBoxFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldView.swift; sourceTree = "<group>"; };
 		4DB6F983276B479E009A0B79 /* CustomEntryFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntryFieldView.swift; sourceTree = "<group>"; };
-		4DC9CA272768DE1B00F9686B /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		4DD3CEB3276A1321000F8CC0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		4DD542012761F317004C8414 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			children = (
 				4DD542032762075B004C8414 /* LoginViewModel.swift */,
 				4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */,
-				4DC9CA272768DE1B00F9686B /* SideMenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -221,7 +218,6 @@
 				4D478F262767EA220026CBED /* HomeView.swift in Sources */,
 				4DD3CEB6276A9B5A000F8CC0 /* SignUpViewModel.swift in Sources */,
 				4D71FFF027608B8C00A08F36 /* Real_Estate_App.swift in Sources */,
-				4DC9CA282768DE1B00F9686B /* SideMenuViewModel.swift in Sources */,
 				4DD542042762075B004C8414 /* LoginViewModel.swift in Sources */,
 				4D478F222767D5610026CBED /* SignUpView.swift in Sources */,
 				4D478F242767D7730026CBED /* Utilities.swift in Sources */,

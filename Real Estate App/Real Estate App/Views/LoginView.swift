@@ -19,9 +19,9 @@ struct LoginView: View
             ScrollView
             {
                 //MARK: Custom Entry Field
-                //                                EntryField(sfSymbolName: Constants.TextField.personSymbol, placeHolder: "Enter A Name", prompt: loginVM.emailPrompt, field: $loginVM.email)
+                //                EntryField(sfSymbolName: Constants.TextField.personSymbol, placeHolder: "Enter A Name", prompt: loginVM.emailPrompt, field: $loginVM.email)
                 //
-                //                                EntryField(sfSymbolName: Constants.TextField.passwordSymbol, placeHolder: "Enter A Password", prompt: loginVM.passwordPrompt, field: $loginVM.password, isSecure: true)
+                //                EntryField(sfSymbolName: Constants.TextField.passwordSymbol, placeHolder: "Enter A Password", prompt: loginVM.passwordPrompt, field: $loginVM.password, isSecure: true)
                 //                CheckboxFieldView()
                 
                 VStack
@@ -73,33 +73,44 @@ struct LoginView: View
                         .padding()
                     
                     
-                    
-                    NavigationLink(destination: HomeView(),
-                                   isActive: self.$loginVM.isLoginValid)
-                    {
-                        Text("SIGN IN")
-                            .padding()
-                            .foregroundColor(.white)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color("CustomDarkBlue"))
-                            .onTapGesture
-                        {
-                            //determine login validity
-                            let isLoginValid = self.loginVM.email == Credentials().username && self.loginVM.password == Credentials().password
-                            
-                            //trigger logic
-                            if isLoginValid {
-                                self.loginVM.isLoginValid = true //trigger NavigationLink
-                                loginVM.logIn()
+                    if loginVM.isLoginComplete {
+                        NavigationLink(destination: HomeView(), label: {
+                            Text("SIGN IN")
+                                .padding()
+                                .foregroundColor(.white)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(Color("CustomDarkBlue"))
+                        })
+                            .padding([.leading, .trailing], 15)
+                            .alert(isPresented: $loginVM.shouldShowLoginAlert) {
+                                Alert(title: Text("Email or Password incorrect"))
                             }
-                            else {
-                                self.loginVM.shouldShowLoginAlert = true //trigger Alert
+                        
+                    } else {
+                        NavigationLink(destination: HomeView(), label: {
+                            Text("SIGN IN")
+                                .padding()
+                                .foregroundColor(.white)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(Color("CustomDarkBlue"))
+                                .onTapGesture {
+                                    let isLoginValid = self.loginVM.isLoginComplete
+                                    
+                                    if isLoginValid {
+                                        self.loginVM.isLoginValid = true //trigger NavigationLink
+                                        loginVM.clearTextFields()
+                                    }
+                                    else {
+                                        self.loginVM.shouldShowLoginAlert = true //trigger Alert
+                                        loginVM.clearTextFields()
+                                    }
+                                }
+                        })
+                            .padding([.leading, .trailing], 15)
+                            .alert(isPresented: $loginVM.shouldShowLoginAlert) {
+                                Alert(title: Text("Email or Password Incorrect"))
                             }
-                        }
-                    }
-                    .padding([.leading, .trailing], 15)
-                    .alert(isPresented: $loginVM.shouldShowLoginAlert) {
-                        Alert(title: Text("Email/Password incorrect"))
+                        
                     }
                     
                     Divider()
