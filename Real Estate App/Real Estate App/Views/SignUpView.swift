@@ -10,6 +10,48 @@ import SwiftUI
 struct SignUpView: View {
     
     @ObservedObject var signUpVM = SignUpViewModel()
+    var contactMe = ["Select",
+                     "Yes",
+                     "No"
+    ]
+    var states = ["Select",
+                  "Andaman and Nicobar Island",
+                  "Andhra Pradesh",
+                  "Arunachal Pradesh",
+                  "Assam",
+                  "Bihar",
+                  "Chandigarh",
+                  "Chhattisgarh",
+                  "Delhi",
+                  "Goa",
+                  "Gujarat",
+                  "Haryana",
+                  "Himachal Pradesh",
+                  "Jammu and Kashmir",
+                  "Jharkhand",
+                  "Karnataka",
+                  "Kerala",
+                  "Ladakh",
+                  "Lakshadweep",
+                  "Madhya Pradesh",
+                  "Maharashtra",
+                  "Manipur",
+                  "Meghalaya",
+                  "Mizoram",
+                  "Nagaland",
+                  "Odisha",
+                  "Puducherry",
+                  "Punjab",
+                  "Rajasthan",
+                  "Sikkim",
+                  "Tamil Nadu",
+                  "Telangana",
+                  "Tripura",
+                  "Uttarakhand",
+                  "Uttar Pradesh",
+                  "West Bengal"
+    ]
+    @State private var selectedState = "Select"
     
     var body: some View {
         ScrollView {
@@ -51,64 +93,65 @@ struct SignUpView: View {
                 }
                 .padding(.top, 40)
                 
-                HStack {
-                    VStack {
-                        HStack {
-                            Text("City")
-                                .foregroundColor(.gray)
-                            Text("*")
-                                .foregroundColor(.red)
-                            
-                        }
+                VStack {
+                    HStack {
+                        Text("City")
+                            .foregroundColor(.gray)
+                        Text("*")
+                            .foregroundColor(.red)
                         
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        TextField("Select", text: $signUpVM.city)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 0)
-                                        .stroke(lineWidth: 1)
-                                        .foregroundColor(.gray))
                     }
-                    .padding(.top, 40)
                     
-                    VStack {
-                        HStack {
-                            Text("State")
-                                .foregroundColor(.gray)
-                            Text("*")
-                                .foregroundColor(.red)
-                            
-                        }
-                        
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        
-                        TextField("Select", text: $signUpVM.state)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 0)
-                                        .stroke(lineWidth: 1)
-                                        .foregroundColor(.gray))
-                    }
-                    .padding(.top, 40)
-                    
-                    VStack {
-                        HStack {
-                            
-                            Text("Zip Code")
-                                .foregroundColor(.gray)
-                            Text("*")
-                                .foregroundColor(.red)
-                            
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        
-                        TextField("XXXX", text: $signUpVM.zipCode)
-                            .padding()
-                            .overlay(RoundedRectangle(cornerRadius: 0)
-                                        .stroke(lineWidth: 1)
-                                        .foregroundColor(.gray))
-                    }
-                    .padding(.top, 40)
-                    
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    TextField("Select", text: $signUpVM.city)
+                        .padding()
+                        .overlay(RoundedRectangle(cornerRadius: 0)
+                                    .stroke(lineWidth: 1)
+                                    .foregroundColor(.gray))
                 }
+                .padding(.top, 40)
+                
+                VStack {
+                    HStack {
+                        Text("State")
+                            .foregroundColor(.gray)
+                        Text("*")
+                            .foregroundColor(.red)
+                        
+                    }
+                    
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    Picker("Select", selection: $selectedState) {
+                        ForEach(states, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    .border(Color.gray)
+                }
+                .padding(.top, 40)
+                
+                VStack {
+                    HStack {
+                        
+                        Text("Zip Code")
+                            .foregroundColor(.gray)
+                        Text("*")
+                            .foregroundColor(.red)
+                        
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    TextField("XXXX", text: $signUpVM.zipCode)
+                        .padding()
+                        .overlay(RoundedRectangle(cornerRadius: 0)
+                                    .stroke(lineWidth: 1)
+                                    .foregroundColor(.gray))
+                }
+                .padding(.top, 40)
+                
                 HStack {
                     VStack {
                         HStack {
@@ -204,8 +247,27 @@ struct SignUpView: View {
                                     .stroke(lineWidth: 1)
                                     .foregroundColor(.gray))
                 }
+                .padding()
+                
+                VStack {
+                    
+                    Text("Can we contact you?")
+                        .foregroundColor(.gray)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    
+                    Picker("Select", selection: $selectedState) {
+                        ForEach(contactMe, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .border(Color.gray)
+                    .foregroundColor(.gray)
+                }
                 
                 .padding()
+                
                 HStack {
                     VStack {
                         HStack {

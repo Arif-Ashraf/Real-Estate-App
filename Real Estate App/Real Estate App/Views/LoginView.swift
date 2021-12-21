@@ -11,6 +11,7 @@ struct LoginView: View
 {
     
     @ObservedObject var loginVM = LoginViewModel()
+    @ObservedObject var rememberMeVM = RememberMeViewModel()
     
     var body: some View
     {
@@ -68,7 +69,7 @@ struct LoginView: View
                         .overlay(RoundedRectangle(cornerRadius: 0)
                                     .stroke(lineWidth: 1)
                                     .foregroundColor(.gray))
-                        CheckboxFieldView()
+                        RememberMeView()
                     })
                         .padding()
                     
@@ -81,11 +82,10 @@ struct LoginView: View
                                 .frame(minWidth: 0, maxWidth: .infinity)
                                 .background(Color("CustomDarkBlue"))
                         })
-                            .padding([.leading, .trailing], 15)
-                            .alert(isPresented: $loginVM.shouldShowLoginAlert) {
-                                Alert(title: Text("Email or Password incorrect"))
+                            .onTapGesture {
+                                rememberMeVM.saveData()
                             }
-                        
+                            .padding([.leading, .trailing], 15)
                     } else {
                         NavigationLink(destination: HomeView(), label: {
                             Text("SIGN IN")
@@ -104,13 +104,16 @@ struct LoginView: View
                                         self.loginVM.shouldShowLoginAlert = true //trigger Alert
                                         loginVM.clearTextFields()
                                     }
+                                    
                                 }
                         })
                             .padding([.leading, .trailing], 15)
                             .alert(isPresented: $loginVM.shouldShowLoginAlert) {
                                 Alert(title: Text("Email or Password Incorrect"))
                             }
-                        
+                            .onTapGesture(perform: {
+                                rememberMeVM.saveData()
+                            })
                     }
                     
                     Divider()
@@ -133,6 +136,9 @@ struct LoginView: View
                     }
                     .padding([.leading, .trailing, .bottom], 15)
                 }
+                .onAppear(perform: {
+                    rememberMeVM.getData()
+                })
             }
         }
         .environment(\.horizontalSizeClass, .compact)

@@ -10,31 +10,11 @@ import SwiftUI
 
 class LoginViewModel: ObservableObject {
     
-    @Published var credentials = Credentials()
-    
     //Login Field Properties
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isLoginValid: Bool = false
     @Published var shouldShowLoginAlert: Bool = false
-    
-    
-    
-    var errorMessage: String = ""
-    @Published var isError = false
-    
-    func validate() {
-        if email.isEmpty{
-            errorMessage = "Email ID is Empty"
-            isError = true
-        } else if password.isEmpty {
-            errorMessage = "Password is Empty"
-            isError = true
-        } else {
-            errorMessage = ""
-            isError = false
-        }
-    }
     
      func isEmailValid() -> Bool {
         let emailTest = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")

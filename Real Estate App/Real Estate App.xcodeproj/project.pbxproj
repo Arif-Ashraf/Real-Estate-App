@@ -18,7 +18,8 @@
 		4D71FFF927608B8D00A08F36 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71FFF827608B8D00A08F36 /* Persistence.swift */; };
 		4D71FFFC27608B8D00A08F36 /* Real_Estate_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D71FFFA27608B8D00A08F36 /* Real_Estate_App.xcdatamodeld */; };
 		4D7D922A276713E900444CBE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D9229276713E900444CBE /* Constants.swift */; };
-		4DB6F982276B4749009A0B79 /* CheckBoxFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F981276B4749009A0B79 /* CheckBoxFieldView.swift */; };
+		4D8848DD2771C775000BFD92 /* RememberMeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8848DC2771C775000BFD92 /* RememberMeViewModel.swift */; };
+		4DB6F982276B4749009A0B79 /* RememberMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F981276B4749009A0B79 /* RememberMeView.swift */; };
 		4DB6F984276B479E009A0B79 /* CustomEntryFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6F983276B479E009A0B79 /* CustomEntryFieldView.swift */; };
 		4DD3CEB4276A1321000F8CC0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3CEB3276A1321000F8CC0 /* WelcomeView.swift */; };
 		4DD3CEB6276A9B5A000F8CC0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */; };
@@ -39,7 +40,8 @@
 		4D71FFF827608B8D00A08F36 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4D71FFFB27608B8D00A08F36 /* Real_Estate_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Real_Estate_App.xcdatamodel; sourceTree = "<group>"; };
 		4D7D9229276713E900444CBE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4DB6F981276B4749009A0B79 /* CheckBoxFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldView.swift; sourceTree = "<group>"; };
+		4D8848DC2771C775000BFD92 /* RememberMeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberMeViewModel.swift; sourceTree = "<group>"; };
+		4DB6F981276B4749009A0B79 /* RememberMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberMeView.swift; sourceTree = "<group>"; };
 		4DB6F983276B479E009A0B79 /* CustomEntryFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntryFieldView.swift; sourceTree = "<group>"; };
 		4DD3CEB3276A1321000F8CC0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				4DD542032762075B004C8414 /* LoginViewModel.swift */,
 				4DD3CEB5276A9B5A000F8CC0 /* SignUpViewModel.swift */,
+				4D8848DC2771C775000BFD92 /* RememberMeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,7 +135,7 @@
 				4D478F212767D5610026CBED /* SignUpView.swift */,
 				4DD3CEB3276A1321000F8CC0 /* WelcomeView.swift */,
 				4D478F252767EA210026CBED /* HomeView.swift */,
-				4DB6F981276B4749009A0B79 /* CheckBoxFieldView.swift */,
+				4DB6F981276B4749009A0B79 /* RememberMeView.swift */,
 				4DB6F983276B479E009A0B79 /* CustomEntryFieldView.swift */,
 			);
 			path = Views;
@@ -209,9 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD542022761F317004C8414 /* Credentials.swift in Sources */,
+				4D8848DD2771C775000BFD92 /* RememberMeViewModel.swift in Sources */,
 				4DB6F984276B479E009A0B79 /* CustomEntryFieldView.swift in Sources */,
 				4D71FFF927608B8D00A08F36 /* Persistence.swift in Sources */,
-				4DB6F982276B4749009A0B79 /* CheckBoxFieldView.swift in Sources */,
+				4DB6F982276B4749009A0B79 /* RememberMeView.swift in Sources */,
 				4D71000527608D7900A08F36 /* LoginView.swift in Sources */,
 				4D71FFFC27608B8D00A08F36 /* Real_Estate_App.xcdatamodeld in Sources */,
 				4D71FFF227608B8C00A08F36 /* ContentView.swift in Sources */,
@@ -239,6 +243,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Real Estate App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Real-Estate-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -267,6 +272,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Real Estate App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Real-Estate-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -391,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
