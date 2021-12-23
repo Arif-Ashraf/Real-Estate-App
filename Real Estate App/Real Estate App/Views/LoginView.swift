@@ -11,7 +11,6 @@ struct LoginView: View
 {
     
     @ObservedObject var loginVM = LoginViewModel()
-    @ObservedObject var rememberMeVM = RememberMeViewModel()
     
     var body: some View
     {
@@ -69,22 +68,47 @@ struct LoginView: View
                         .overlay(RoundedRectangle(cornerRadius: 0)
                                     .stroke(lineWidth: 1)
                                     .foregroundColor(.gray))
-                        RememberMeView()
+                        
+                        //MARK: RememberMe Checkbox UI 
+                        Button(action:
+                                {
+                            //1. Save state
+                            loginVM.checkState = !loginVM.checkState
+                            print("State : \(loginVM.checkState)")
+//                            loginVM.saveData()
+                            
+                        }) {
+                            
+                            HStack(alignment: .top, spacing: 10) {
+                                
+                                //2. Will update according to state
+                                Rectangle()
+                                    .fill(loginVM.checkState ? Color.secondary : Color.white)
+                                    .background(loginVM.checkState ? Image(systemName: "checkmark") : Image(systemName: "square.fill"))
+                                    .frame(width:20, height:20, alignment: .center)
+                                    .cornerRadius(5)
+                                    .border(.gray)
+                                Text("Remember Me")
+                                    .foregroundColor(.gray)
+                                
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     })
                         .padding()
                     
-                    
+                    //Login Validation, Navigation and Saving & Retrieving Data in User Defaults.
                     if loginVM.isLoginComplete {
-                        NavigationLink(destination: HomeView(), label: {
+                        NavigationLink(destination: HomeView().onAppear() {
+                            loginVM.saveData()
+                        }, label: {
                             Text("SIGN IN")
                                 .padding()
                                 .foregroundColor(.white)
                                 .frame(minWidth: 0, maxWidth: .infinity)
                                 .background(Color("CustomDarkBlue"))
+                                
                         })
-                            .onTapGesture {
-                                rememberMeVM.saveData()
-                            }
                             .padding([.leading, .trailing], 15)
                     } else {
                         NavigationLink(destination: HomeView(), label: {
@@ -98,11 +122,11 @@ struct LoginView: View
                                     
                                     if isLoginValid {
                                         self.loginVM.isLoginValid = true //trigger NavigationLink
-                                        loginVM.clearTextFields()
-                                    }
-                                    else {
+//                                        loginVM.saveData()
+                                    } else {
                                         self.loginVM.shouldShowLoginAlert = true //trigger Alert
                                         loginVM.clearTextFields()
+                                        loginVM.saveData()
                                     }
                                     
                                 }
@@ -111,9 +135,6 @@ struct LoginView: View
                             .alert(isPresented: $loginVM.shouldShowLoginAlert) {
                                 Alert(title: Text("Email or Password Incorrect"))
                             }
-                            .onTapGesture(perform: {
-                                rememberMeVM.saveData()
-                            })
                     }
                     
                     Divider()
@@ -137,7 +158,7 @@ struct LoginView: View
                     .padding([.leading, .trailing, .bottom], 15)
                 }
                 .onAppear(perform: {
-                    rememberMeVM.getData()
+                    loginVM.getData()
                 })
             }
         }
