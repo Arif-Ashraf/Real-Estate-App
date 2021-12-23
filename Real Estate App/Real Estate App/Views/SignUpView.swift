@@ -327,100 +327,24 @@ struct SignUpView: View {
                 }
                 .padding()
                 
-                //                VStack{
-                //                    Text ("Can we contact you?")
-                //                    VStack {
-                //                        Picker("Can we contact you?", selection: $selectedColorIndex, content: { // <2>
-                //                            Text("Yes").tag(0) // <3>
-                //                            Text("No").tag(1) // <4>
-                //
-                //                        })
-                //                        Text(" \(selectedColorIndex)") // <6>
-                //                    }
-                //                    .padding()
-                //                }
-                
-                //                VStack {
-                //                    Text ("Please share contact person details:")
-                //                        .foregroundColor(.gray)
-                //                }
-                //                .padding()
-                //                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //
-                //                HStack {
-                //                    VStack {
-                //                        HStack {
-                //                            Text("First Name")
-                //                                .foregroundColor(.gray)
-                //                            Text("*")
-                //                                .foregroundColor(.red)
-                //                        }
-                //
-                //                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //
-                //                        TextField("Enter First Name", text: $viewModel.firstName)
-                //                            .padding()
-                //                            .overlay(RoundedRectangle(cornerRadius: 0)
-                //                                        .stroke(lineWidth: 1)
-                //                                        .foregroundColor(.gray))
-                //                    }
-                //                    .padding()
-                //
-                //                    VStack {
-                //                        HStack {
-                //                            Text("Last Name")
-                //                                .foregroundColor(.gray)
-                //                            Text("*")
-                //                                .foregroundColor(.red)
-                //
-                //                        }
-                //
-                //                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //
-                //                        TextField("Enter Last Name", text: $viewModel.lastName)
-                //                            .padding()
-                //                            .overlay(RoundedRectangle(cornerRadius: 0)
-                //                                        .stroke(lineWidth: 1)
-                //                                        .foregroundColor(.gray))
-                //                    }
-                //                    .padding()
-                //
-                //                }
-                //                VStack {
-                //                    HStack{
-                //                        Text("Email")
-                //                            .foregroundColor(.gray)
-                //                        Text("*")
-                //                            .foregroundColor(.red)
-                //
-                //                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //                    }
-                //                    TextField("Enter Email Address", text: $viewModel.email)
-                //                        .padding()
-                //                        .overlay(RoundedRectangle(cornerRadius: 0)
-                //                                    .stroke(lineWidth: 1)
-                //                                    .foregroundColor(.gray))
-                //                }
-                //                .padding()
-                
-                VStack{
+                VStack {
                     NavigationLink(destination: WelcomeView(),
                                    isActive: self.$signUpVM.isSignUpValid)
                     {
-                        Text("SIGN IN")
+                        Text("SIGN UP")
                             .padding()
                             .foregroundColor(.white)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .background(Color("CustomDarkBlue"))
                             .onTapGesture
                         {
-                            //determine login validity
+                            //Determine SignUp Validity
                             let isSignUpValid = !self.signUpVM.agencyName.isEmpty && !self.signUpVM.agencyAddress.isEmpty && !self.signUpVM.city.isEmpty && !self.signUpVM.state.isEmpty && !self.signUpVM.zipCode.isEmpty && !self.signUpVM.businessType.isEmpty && !self.signUpVM.dealsType.isEmpty && !self.signUpVM.businessLocation.isEmpty && !self.signUpVM.dealingStatus.isEmpty && !self.signUpVM.numberOfEmployees.isEmpty && !self.signUpVM.firstName.isEmpty && !self.signUpVM.lastName.isEmpty && !self.signUpVM.email.isEmpty
                             
-                            //trigger logic
+                            //Trigger Logic
                             if isSignUpValid {
-                                self.signUpVM.isSignUpValid = true //trigger NavigationLink
-                                //                                        viewModel.logIn()
+                                //Trigger NavigationLink
+                                self.signUpVM.isSignUpValid = true
                             }
                             else {
                                 self.signUpVM.shouldShowSignUpAlert = true //trigger Alert
